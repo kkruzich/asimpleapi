@@ -18,10 +18,11 @@ The following are required for a local installation:
 
 * Python 3.6+
 * Python modules: Flask, [flask_accept](https://pypi.org/project/flask_accept), [pytest](https://pytest.org)
-
+    ```
     pip install flask   
     pip install flask_accept   
     pip install pytest   
+    ```
 
 The following are required for a Docker installation:
 
