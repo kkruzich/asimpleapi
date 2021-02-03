@@ -3,7 +3,7 @@
 
 ## A Simple API (with Flask)
 
-#### Summary
+### Summary
 
 This repository contains code demonstrating a simple API using the [Flask web application framework](https://flask.palletsprojects.com). `HTTP`
 methods `GET` and `POST` are used, each returning JSON and HTML responses based on the client request header `Accept: application/json`
@@ -12,12 +12,13 @@ Two methods of installing and running the application are shown below, Local or 
 
 Also included here is a simple unit test using the [pytest](https://pytest.org) testing framework.
 
-#### Requirements
+### Requirements
 
 The following are required for a local installation:
 
 * Python 3.6+
 * Python modules: Flask, [flask_accept](https://pypi.org/project/flask_accept), [pytest](https://pytest.org)
+
     ```
     pip install flask   
     pip install flask_accept   
@@ -29,7 +30,7 @@ The following are required for a Docker installation:
 * [Docker](https://docker.com) CE/EE 17+
 
 
-#### Repository Structure
+### Repository Structure
 
     .
     |-- Dockerfile
@@ -42,7 +43,7 @@ The following are required for a Docker installation:
     |   |-- quick_test.sh
 
 
-#### Installation
+### Installation
 
 Prior to running the application either locally or with Docker, determine if debug logging is desired and whether the API should available only for local
 access (127.0.0.1), the default, or from other networks (0.0.0.0). Edit the following parameters based on preferences.
@@ -53,7 +54,7 @@ access (127.0.0.1), the default, or from other networks (0.0.0.0). Edit the foll
  `app.run()` - The default and recommended setting.   
  `app.run(host='0.0.0.0')` - Allows access from any network. May be scoped to specific network segments (refer to Flask documentation).
 
-#### Installation - Local
+### Installation - Local
 
 Clone this repository and run the application directly:
 
@@ -61,7 +62,7 @@ Clone this repository and run the application directly:
     python3 asimpleapi/app/main.py
 
 
-#### Installation - Docker (optional)
+### Installation - Docker (optional)
 
 Docker may be used to run the application. The following clones the repository, creates a docker image and container, and displays the logs of the running container. Use `docker logs myflaskid` repeatedly to view recent request entries.
 
@@ -80,11 +81,11 @@ To remove the docker container and image:
     docker image rm myflask
 
 
-#### Testing - Quick Tests
+### Testing - Quick Tests
 
 A 'quick test' shell script `tests/quick_test.sh` included to verify connection to and responses from the application.
 
-#### Testing - Unit Tests
+### Testing - Unit Tests
 
 It isn't necessary to run the application to perform the unit test. Running the tests is very simple:
 
