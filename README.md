@@ -19,10 +19,9 @@ The following are required for a local installation:
 * Python 3.6+
 * Python modules: Flask, [flask_accept](https://pypi.org/project/flask_accept), [pytest](https://pytest.org)
 
-
-    pip install flask
-    pip install flask_accept
-    pip install pytest
+    pip install flask   
+    pip install flask_accept   
+    pip install pytest   
 
 The following are required for a Docker installation:
 
@@ -47,10 +46,10 @@ The following are required for a Docker installation:
 Prior to running the application either locally or with Docker, determine if debug logging is desired and whether the API should available only for local
 access (127.0.0.1), the default, or from other networks (0.0.0.0). Edit the following parameters based on preferences.
 
- `mydebug = False` - The default. Only INFO logging messages are printed to console (logging.StreamHandler)
+ `mydebug = False` - The default. Only INFO logging messages are printed to console (`logging.StreamHandler`)   
  `mydebug = True` - Prints DEBUG messages to console in the form of: request ip address - request url - request method
 
- `app.run()` - The default and recommended setting.
+ `app.run()` - The default and recommended setting.   
  `app.run(host='0.0.0.0')` - Allows access from any network. May be scoped to specific network segments (refer to Flask documentation).
 
 #### Installation - Local
@@ -72,6 +71,12 @@ Docker may be used to run the application. The following clones the repository, 
     docker run -d --name myflaskid -p 5000:5000 myflask
     docker ps
     docker logs myflaskid
+
+To remove the docker container and image:
+
+    docker container stop myflaskid
+    docker container rm myflaskid
+    docker image rm myflask
 
 
 #### Testing - Quick Tests
