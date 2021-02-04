@@ -55,8 +55,8 @@ access (127.0.0.1), the default, or from other networks (0.0.0.0). Edit the foll
 
  **_Note:_** If Docker is chosen as the preffered means of running the application, access from any network will be the default. See `/Dockerfile`
 
- `app.run()` - The default and recommended setting for local installation.
- `app.run(host='0.0.0.0')` - Default for Docker. Allows access from any network. May be scoped to specific network segments (refer to Flask documentation).
+ `app.run()` - The default and recommended setting for local installation.   
+ `app.run(host='0.0.0.0')` - Default for Docker. Allows access from any network. May be scoped to specific network segments (refer to Flask documentation).  
 
 ### Installation and Run - Local
 
@@ -96,7 +96,22 @@ To remove the docker container and image:
 
 ### Testing - Quick Tests
 
-A 'quick test' shell script `tests/quick_test.sh` included to verify connection to and responses from the application.
+A 'quick test' shell script `tests/quick_test.sh` included to verify connection to and responses from the application. Edit the 
+variable `TARGET` if testing a remote instance. The script is a series of `curl` commands which will produce output similar to the 
+following:
+
+    GET with HTML:
+    <p>Hello, World</p>
+
+    GET with JSON:
+    {"message":"Hello, World"}
+
+    POST with HTML:
+    <p>Hello, World</p>
+
+    POST with JSON:
+    {"message":"Hello, World"}
+
 
 ### Testing - Unit Tests
 
@@ -110,5 +125,4 @@ the `/tests` directory.
 Upon success, output similar to the following will be printed:
 
     4 passed in 0.60s
-
 
