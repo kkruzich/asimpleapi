@@ -87,6 +87,8 @@ Docker may be used to run the application. The following clones the repository, 
     docker ps
     docker logs myflaskid
 
+Point a web browser to `http://127.0.0.1:5000` or use curl `curl http://127.0.0.1:5000`. Either of these will return the text, 'Hello, World'. See **Quick Tests** below for full verification of the running application. 
+
 To remove the docker container and image:
 
     docker container stop myflaskid
