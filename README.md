@@ -48,11 +48,15 @@ The following are required for a Docker installation:
 Prior to running the application either locally or with Docker, determine if debug logging is desired and whether the API should available only for local
 access (127.0.0.1), the default, or from other networks (0.0.0.0). Edit the following parameters based on preferences.
 
+ `app/main.py`:
+
  `mydebug = False` - The default. Only INFO logging messages are printed to console (`logging.StreamHandler`)   
  `mydebug = True` - Prints DEBUG messages to console in the form of: request ip address - request url - request method
 
+ **_Note:_** If Docker is chosen as the preffered means of running the application, it's necessary to allow access from any network.
+
  `app.run()` - The default and recommended setting.   
- `app.run(host='0.0.0.0')` - Allows access from any network. May be scoped to specific network segments (refer to Flask documentation).
+ `app.run(host='0.0.0.0')` - Use for Docker. Allows access from any network. May be scoped to specific network segments (refer to Flask documentation).
 
 ### Installation - Local
 
@@ -61,10 +65,17 @@ Clone this repository and run the application directly:
     git clone https://github.com/kkruzich/asimpleapi.git
     python3 asimpleapi/app/main.py
 
+The following will then indicate the application is running properly:
+
+    2021-02-03 16:20:58,987 - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+Point a web browser to `http://127.0.0.1:5000` or use curl `curl http://127.0.0.1:5000`. Either of these will return the text, 'Hello, World'. See **Quick Tests** below for full verification of the running application. 
 
 ### Installation - Docker (optional)
 
 Docker may be used to run the application. The following clones the repository, creates a docker image and container, and displays the logs of the running container. Use `docker logs myflaskid` repeatedly to view recent request entries.
+
+   **_Note:_** If Docker is chosen as the preffered means of running the application, it's necessary to allow access from any network. See notes under **Installation** above.
 
     git clone https://github.com/kkruzich/asimpleapi.git
     cd asimpleapi
@@ -87,11 +98,15 @@ A 'quick test' shell script `tests/quick_test.sh` included to verify connection 
 
 ### Testing - Unit Tests
 
-It isn't necessary to run the application to perform the unit test. Running the tests is very simple:
+Before running Unit Tests, verify the application _is not_ running. Be certain to copy the most recent version of `/app/main.py` to 
+the `/tests` directory.
 
     cd tests
+    cp ../app/main.py . 
     py.test
 
 Upon success, output similar to the following will be printed:
 
-    5 passed in 0.60s
+    4 passed in 0.60s
+
+
