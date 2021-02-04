@@ -6,6 +6,9 @@ EXPOSE 5000
 
 COPY ./app /app
 
-ENTRYPOINT [ "python3" ]
+ENV FLASK_APP=main
+ENV FLASK_RUN_HOST=0.0.0.0
 
-CMD [ "/app/main.py" ]
+WORKDIR /app
+
+ENTRYPOINT FLASK_APP=/app/main.py flask run --host=0.0.0.0
